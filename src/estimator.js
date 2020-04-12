@@ -1,3 +1,4 @@
+
 const getDay = (periodType, value) => {
   let days = 0;
   if (periodType === 'weeks') {
@@ -28,33 +29,53 @@ const factor = (periodType, value) => {
   return factors;
 };
 
-const covid19ImpactEstimator = (data) => ({
-  data,
-  impact: {
-    currentlyInfected: () => Math.trunc(data.reportedCases * 10),
-    infectionsByRequestedTime: () => Math.trunc(this.currentlyInfected
-      * (2 ** factor(data.periodType, data.timeToElapse))),
-    severeCasesByRequestedTime: () => Math.trunc(0.15 * this.infectionsByRequestedTime),
-    hospitalBedsByRequestedTime: () => Math.trunc((data.totalHospitalBeds * 0.35)
-    - this.severeCasesByRequestedTime),
-    casesForICUByRequestedTime: () => Math.trunc(0.05 * this.infectionsByRequestedTime),
-    casesForVentilatorsByRequestedTime: () => Math.trunc(0.02 * this.infectionsByRequestedTime),
-    dollarsInFlight: () => Math.trunc((this.infectionsByRequestedTime
-      * data.avgDailyIncomePopulation * data.avgDailyIncomeInUSD) / 30)
-  },
-  severeImpact: {
-    currentlyInfected: () => Math.trunc(data.reportedCases * 50),
-    infectionsByRequestedTime: () => Math.trunc(this.currentlyInfected
-      * (2 ** factor(data.periodType, data.timeToElapse))),
-    severeCasesByRequestedTime: () => Math.trunc(0.15 * this.infectionsByRequestedTime),
-    hospitalBedsByRequestedTime: () => Math.trunc((data.totalHospitalBeds * 0.35)
-    - this.severeCasesByRequestedTime),
-    casesForICUByRequestedTime: () => Math.trunc(0.05 * this.infectionsByRequestedTime),
-    casesForVentilatorsByRequestedTime: () => Math.trunc(0.02 * this.infectionsByRequestedTime),
-    dollarsInFlight: () => Math.trunc((this.infectionsByRequestedTime
-      * data.avgDailyIncomePopulation * data.avgDailyIncomeInUSD) / 30)
-  }
-});
+const covid19ImpactEstimator = (data) => {
+  // impact
+  const currentlyInfected = Math.trunc(data.reportedCases * 10);
+  const infectionsByRequestedTime = Math.trunc(currentlyInfected
+    * (2 ** factor(data.periodType, data.timeToElapse)));
+  const severeCasesByRequestedTime = Math.trunc(0.15 * infectionsByRequestedTime);
+  const hospitalBedsByRequestedTime = Math.trunc((data.totalHospitalBeds * 0.35)
+  - severeCasesByRequestedTime);
+  const casesForICUByRequestedTime = Math.trunc(0.05 * infectionsByRequestedTime);
+  const casesForVentilatorsByRequestedTime = Math.trunc(0.02 * infectionsByRequestedTime);
+  const dollarsInFlight = Math.trunc((infectionsByRequestedTime
+    * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD) / 30);
+
+  // severeImpact
+  const currentlyInfectedSevere = Math.trunc(data.reportedCases * 50);
+  const infectionsByRequestedTimeSevere = Math.trunc(currentlyInfectedSevere
+    * (2 ** factor(data.periodType, data.timeToElapse)));
+  const severeCasesByRequestedTimeSevere = Math.trunc(0.15 * infectionsByRequestedTimeSevere);
+  const hospitalBedsByRequestedTimeSevere = Math.trunc((data.totalHospitalBeds * 0.35)
+  - severeCasesByRequestedTimeSevere);
+  const casesForICUByRequestedTimeSevere = Math.trunc(0.05 * infectionsByRequestedTimeSevere);
+  const casesForVentilatorsByRequestedTimeSevere = Math.trunc(0.02
+  * infectionsByRequestedTimeSevere);
+  const dollarsInFlightSevere = Math.trunc((infectionsByRequestedTimeSevere
+  * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD) / 30);
+  return {
+    data,
+    impact: {
+      currentlyInfected,
+      infectionsByRequestedTime,
+      severeCasesByRequestedTime,
+      hospitalBedsByRequestedTime,
+      casesForICUByRequestedTime,
+      casesForVentilatorsByRequestedTime,
+      dollarsInFlight
+    },
+    severeImpact: {
+      currentlyInfected: currentlyInfectedSevere,
+      infectionsByRequestedTime: infectionsByRequestedTimeSevere,
+      severeCasesByRequestedTime: severeCasesByRequestedTimeSevere,
+      hospitalBedsByRequestedTime: hospitalBedsByRequestedTimeSevere,
+      casesForICUByRequestedTime: casesForICUByRequestedTimeSevere,
+      casesForVentilatorsByRequestedTime: casesForVentilatorsByRequestedTimeSevere,
+      dollarsInFlight: dollarsInFlightSevere
+    }
+  };
+};
 
 
 export default covid19ImpactEstimator;
