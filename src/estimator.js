@@ -1,17 +1,17 @@
 
-var demo = {
-    region: {
-        name: "Africa",
-        avgAge: 19.7,
-        avgDailyIncomeInUSD: 5,
-        avgDailyIncomePopulation: 0.71
-    },
-    periodType: "days",
-    timeToElapse: 58,
-    reportedCases: 674,
-    population: 66622705,
-    totalHospitalBeds: 1380614
-}
+// let demo = {
+//     region: {
+//         name: "Africa",
+//         avgAge: 19.7,
+//         avgDailyIncomeInUSD: 5,
+//         avgDailyIncomePopulation: 0.71
+//     },
+//     periodType: "days",
+//     timeToElapse: 58,
+//     reportedCases: 674,
+//     population: 66622705,
+//     totalHospitalBeds: 1380614
+// }
 
 const covid19ImpactEstimator = (data) => {
 
@@ -40,7 +40,7 @@ const covid19ImpactEstimator = (data) => {
 };
 
 const getDay = (periodType, value) => {
-    var days = 0;
+    let days = 0;
     if (periodType == "weeks") {
         days = 7 * value;
     } else if (periodType == "months") {
@@ -53,12 +53,12 @@ const getDay = (periodType, value) => {
 }
 
 const factor = (periodType, value) => {
-    var days = getDay(periodType, value);
-    var factor = 0;
-    var temp = 0;
+    let days = getDay(periodType, value);
+    let factor = 0;
+    let temp = 0;
 
 
-    for (var i = 0; i < days; i++) {
+    for (let i = 0; i < days; i++) {
         temp += 1;
         if (temp == 3) {
             factor++;
