@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid19-Estimator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="body">
+    <div class="container">
+        <form action="" method="post">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <div class="inner d-flex">
+                            <label for="my-input">
+                                <i class="fas fa-user-friends icon"></i>
+                            </label>
+                            <input class="form-control" type="number" placeholder="population" name="" data-population>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <div class="inner d-flex">
+                            <label for="my-input">
+                                <i class="far fa-calendar-times icon"></i>
+                            </label>
+                            <input class="form-control" type="text" placeholder="elapse time" name="" data-time-to-elapse>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <div class="inner d-flex">
+                            <label for="my-input">
+                                <i class="fas fa-viruses icon"></i>
+                            </label>
+                            <input class="form-control" type="number" name="" placeholder="reported cases" data-reported-cases>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <div class="inner d-flex">
+                            <label for="my-input">
+                                <i class="fas fa-procedures icon"></i>
+                            </label>
+                            <input class="form-control" type="number" placeholder="total hospital bed" name="" data-total-hospital-beds>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <div class="inner d-flex">
+                            <label for="my-input">
+                                <i class="far fa-calendar-alt icon"></i>
+                            </label>
+                            <select id="my-select" class="form-control" name="" data-period-type>
+                                <option value="days" selected>days</option>
+                                <option value="weeks">weeks</option>
+                                <option value="months">months</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit" data-go-estimate>Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="module" src="src/main.js"></script>
+</body>
+
+</html>
