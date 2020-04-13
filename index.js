@@ -1,7 +1,23 @@
-import covid19ImpactEstimator from './estimator';
+/* eslint-disable prefer-arrow-callback */
+/* eslint-disable prefer-const */
 /* eslint-disable no-undef */
 // eslint-disable-next-line prefer-arrow-callback
 // eslint-disable-next-line no-undef
+
+// let http = require('http');
+
+// // eslint-disable-next-line func-names
+// var express = require('express');
+// var app = express();
+// var path = require('path');
+
+// // viewed at http://localhost:8080
+// app.get('/', function(req, res) {
+//     res.sendFile(path.join(__dirname + '/index.html'));
+// });
+
+// app.listen(8080);
+
 $(document).ready(() => {
   const button = $('[data-go-estimate]');
   const population = $('[data-population]');
@@ -23,8 +39,11 @@ $(document).ready(() => {
       data.reportedCases = reportedCases.val();
       data.totalHospitalBeds = totalHospitalBeds.val();
       data.periodType = periodType.val();
-    }
+      data.region.avgDailyIncomePopulation = 0.5;
+      data.region.avgDailyIncomeInUSD = 1.5;
 
-    console.log(covid19ImpactEstimator(data));
+
+      console.log(covid19ImpactEstimator(data));
+    }
   });
 });
