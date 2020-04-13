@@ -1,0 +1,29 @@
+.body {
+    background-color: aqua;
+    margin: 2rem;
+}
+
+.icon {
+    padding: .6rem .5rem .1rem;
+    /* color: aqua; */
+    color: aqua;
+}
+
+.inner {
+    background-color: white;
+    border-radius: 8px;
+}
+
+.form-group .form-control {
+    border: none;
+    background-color: transparent;
+    transition: all .5s ease-in-out;
+}
+
+
+.form-group .form-control:focus {
+box-shadow: none;
+border: 1px solid white;
+background-color: aqua;
+}
+
