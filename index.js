@@ -25,7 +25,9 @@ $(document).ready(() => {
   const reportedCases = $('[data-reported-cases]');
   const totalHospitalBeds = $('[data-total-hospital-beds]');
   const periodType = $('[data-period-type]');
-  const data = {};
+  const data = {
+    region: {}
+  };
 
 
   button.on('click', (event) => {
