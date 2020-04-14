@@ -1,4 +1,4 @@
-window.onload(() => {
+window.onload = () => {
   const button = document.querySelector('[data-go-estimate]');
   const population = document.querySelector('[data-population]');
   const timeToElapse = document.querySelector('[data-time-to-elapse]');
@@ -24,4 +24,4 @@ window.onload(() => {
       data.region.avgDailyIncomeInUSD = 1.5;
     }
   });
-});
+};
