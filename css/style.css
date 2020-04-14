@@ -42,3 +42,7 @@ button:hover {
     border: 1px solid white;
 }
 
+label {
+    color: white;
+}
+
