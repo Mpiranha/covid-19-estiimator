@@ -18,6 +18,7 @@
     border: none;
     background-color: transparent;
     transition: all .5s ease-in-out;
+    color: black;
 }
 
 
@@ -25,12 +26,14 @@
 box-shadow: none;
 border: 1px solid white;
 background-color: rgb(23, 96, 206);
+color: white;
 }
 
 button {
     background-color: white !important;
     color: rgb(23, 96, 206) !important;
     transition: all .5 linear;
+    font-weight: 800;
 }
 
 button:hover {
