@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online Covid-19 Estimator">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="keywords" content="covid-19, covid, corona virus estimator">
+    <title>Covid19-Estimator</title>
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <style>
+        @import url('./css/style.min.css');
+    </style>
+</head>
+
+<body class="body">
+    <div class="container">
+        <form action="" method="post">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="population">Population</label>
+                        <div class="inner d-flex">
+                            <div>
+                                <i class="fas fa-user-friends icon"></i>
+                            </div>
+                            <input id="population" class="form-control" type="number" placeholder="population" name="" data-population>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label  for="elapse-time">Elapsed Time</label>
+                        <div class="inner d-flex">
+                            <div>
+                                <i class="far fa-calendar-times icon"></i>
+                            </div>
+                            <input id="elapse-time" class="form-control" type="text" placeholder="elapse time" name=""
+                                data-time-to-elapse>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="reported-cases">Reported Cases</label>
+                        <div class="inner d-flex">
+                            <div>
+                                <i class="fas fa-viruses icon"></i>
+                            </div>
+                            <input id="reported-cases" class="form-control" type="number" name="" placeholder="reported cases"
+                                data-reported-cases>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="hospital-beds">Total Hospital Beds</label>
+                        <div class="inner d-flex">
+                            <div>
+                                <i class="fas fa-procedures icon"></i>
+                            </div>
+                            <input id="hospital-beds" class="form-control" type="number" placeholder="total hospital bed" name=""
+                                data-total-hospital-beds>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="period-type">Period Type</label>
+                        <div class="inner d-flex">
+                            <div>
+                                <i class="far fa-calendar-alt icon"></i>
+                            </div>
+                            <select id="period-type" class="form-control" name="" data-period-type>
+                                <option value="days" selected>days</option>
+                                <option value="weeks">weeks</option>
+                                <option value="months">months</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-block w-100" type="submit" data-go-estimate>Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        window.onload = () => {
+  const button = document.querySelector('[data-go-estimate]');
+  const population = document.querySelector('[data-population]');
+  const timeToElapse = document.querySelector('[data-time-to-elapse]');
+  const reportedCases = document.querySelector('[data-reported-cases]');
+  const totalHospitalBeds = document.querySelector('[data-total-hospital-beds]');
+  const periodType = document.querySelector('[data-period-type]');
+  const data = {
+    region: {}
+  };
+
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    if (population.length > 0 && timeToElapse.length > 0
+      && reportedCases.length > 0 && totalHospitalBeds.length > 0
+      && periodType != null) {
+      data.population = population.val();
+      data.timeToElapse = timeToElapse.val();
+      data.reportedCases = reportedCases.val();
+      data.totalHospitalBeds = totalHospitalBeds.val();
+      data.periodType = periodType.val();
+      data.region.avgDailyIncomePopulation = 0.5;
+      data.region.avgDailyIncomeInUSD = 1.5;
+    }
+  });
+};
+
+    </script>
+</body>
+
+</html>
